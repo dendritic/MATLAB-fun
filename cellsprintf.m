@@ -5,6 +5,6 @@ function strarr = cellsprintf(formatSpec, varargin)
 %
 % Part of Burgbox
 
-strarr = mapToCell(@(varargin) sprintf(formatSpec, varargin{:}), varargin{:});
+strarr = fun.map(@(varargin) sprintf(formatSpec, varargin{:}), varargin{:});
 
 end
