@@ -58,7 +58,7 @@ else
   end
   groups = ensureCell(groups);
   %function to select using indices,idx the array in each element of from
-  select = @(idx, from) mapToCell(@(e) e(idx), from);
+  select = @(idx, from) fun.map(@(e) e(idx), from);
   %do grouping at this level nesting level, and recursively group deeper
   %levels
   if iscellstr(clss)
@@ -66,6 +66,6 @@ else
   else
     nested = @(c) groupBy(x(clss == c,:), select(clss == c, gClass(2:end)), groups(2:end));
   end
-  xg = mapToCell(nested, groups{1});
+  xg = fun.map(nested, groups{1});
 end
 end
