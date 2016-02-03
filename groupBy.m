@@ -54,7 +54,7 @@ else
   clss = gClass{1}; %group classes considered at this (nesting) level
   if nargin < 3
     % no groups specified so find sorted/unique of each class
-    groups = mapToCell(@(c) unique(c), gClass);
+    groups = fun.map(@(c) unique(c), gClass);
   end
   groups = ensureCell(groups);
   %function to select using indices,idx the array in each element of from
