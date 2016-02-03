@@ -1,5 +1,5 @@
 function [xg, groups] = groupBy(x, gClass, groups)
-%groupBy Groups elements of on array by one or more criteria
+%groupBy Groups elements of an array by one or more criteria
 %
 % Warning: this function is incredibly useful!
 %
