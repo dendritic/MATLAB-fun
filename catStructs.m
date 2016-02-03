@@ -8,17 +8,17 @@ if nargin < 2
   %the default for setting missing values is empty, []
   missingValue = [];
 end
-fields = unique(cellflat(mapToCell(@fieldnames, cellOfStructs)));
+fields = unique(cellflat(fun.map(@fieldnames, cellOfStructs)));
 
   function t = valueTable(s)
     if ~isrow(s)
       s = reshape(s, 1, []);
     end
-    t =  mapToCell(@(f) pick(s, f, 'cell', 'def', missingValue), fields);
+    t =  fun.map(@(f) pick(s, f, 'cell', 'def', missingValue), fields);
     t = vertcat(t{:});
   end
 
-values = mapToCell(@valueTable, cellOfStructs);
+values = fun.map(@valueTable, cellOfStructs);
 values = horzcat(values{:});
 
 if numel(values) > 0

@@ -67,7 +67,7 @@ function v = pick(from, key, varargin)
 % 2013-09 CB created
 
 if iscell(key)
-  v = mapToCell(@(k) pick(from, k, varargin{:}), key);
+  v = fun.map(@(k) pick(from, k, varargin{:}), key);
 else
   stringArgs = cellfun(@ischar, varargin); %string option params
   [withDefault, default] = namedArg(varargin, 'def');
@@ -104,7 +104,7 @@ else
       end
     else
       if cellOut
-        v = mapToCell(@(e) pick(pick(e, key, varargin{:}), 1), from);
+        v = fun.map(@(e) pick(pick(e, key, varargin{:}), 1), from);
       else
         v = cellfun(@(e) pick(e, key, varargin{:}), from);
       end
